@@ -1,0 +1,212 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Tartalom felülre igazítva */
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column; /* Egymás alatti elrendezés */
+    align-items: center; /* Középre igazítás */
+    gap: 20px; /* Távolság az elemek között */
+    margin-bottom: 50px; /* Távolság a "Kedvenc zenéim" szekciótól */
+}
+
+.intro-and-gif {
+    display: flex; /* Szöveg és GIF egymás mellett */
+    align-items: center; /* Függőlegesen középre igazítva */
+    gap: 20px; /* Távolság a szöveg és a GIF között */}
+
+.intro-text {
+    font-size: 2em;
+    color: #fff;
+    font-weight: bold;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.gif-container {
+    width: 250px;  /* Fix szélesség */
+    height: 250px; /* Fix magasság */
+    overflow: hidden;
+    border-radius: 20px; /* Kerekített sarkok */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent; /* Háttérszín átlátszó */
+    padding: 0; /* Padding eltávolítása */
+    margin: 0; /* Margin eltávolítása */
+}
+
+.gif-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Keret eltávolítása */
+    background-color: transparent; /* Háttérszín átlátszó */
+    border-radius: 20px; /* Kerekített sarkok */
+}
+
+.music-section {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    color: #fff;
+    opacity: 0; /* Alapból láthatatlan */
+    transform: translateY(20px); /* Alapból lejjebb tolva */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Sima animáció */
+}
+
+.music-section.show {
+    opacity: 1; /* Láthatóvá válik */
+    transform: translateY(0); /* Visszatér az eredeti pozícióba */
+}
+
+.social-icons {
+    display: flex; /* Ikonok egymás mellett */
+    justify-content: center; /* Középre igazítás */
+    gap: 20px; /* Távolság az ikonok között */
+    margin-top: 20px; /* Távolság a szöveg és a GIF alatt */
+}
+
+.insta img,
+.youtube img,
+.tiktok img {
+    width: 40px; /* Ikonok mérete */
+    height: 40px;
+    transition: transform 0.3s ease; /* Animáció hover állapotban */
+}
+
+.insta img:hover,
+.youtube img:hover,
+.tiktok img:hover {
+    transform: scale(1.1); /* Kicsit nagyobbá válik hover állapotban */
+}
+
+@media (max-width: 768px) {
+    .social-icons {
+        flex-direction: column; /* Ikonok egymás alatt */
+    }
+}
+
+.media-container {
+    display: flex; /* Spotify beágyazások egymás mellett */
+    justify-content: space-between; /* Távolság a tartalmak között */
+    gap: 20px; /* Távolság a tartalmak között */
+    margin-top: 20px; /* Távolság a szövegtől */
+}
+
+.spotify-embed,
+.youtube-embed {
+    flex: 1; /* Egyenlő szélességűek */
+}
+
+.spotify-embed iframe,
+.youtube-embed iframe {
+    width: 100%; /* Teljes szélesség */
+    border-radius: 12px; /* Kerekített sarkok */
+    
+}
+
+.spotify-embed iframe {
+    height: 352px; /* Spotify magassága */
+}
+
+.youtube-embed iframe {
+    height: 315px; /* YouTube magassága */
+}
+
+/* Reszponzív design mobil eszközökre */
+@media (max-width: 768px) {
+    .media-container {
+        flex-direction: column; /* Tartalmak egymás alatt */
+    }
+
+    .spotify-embed iframe,
+    .youtube-embed iframe {
+        height: 250px; /* Kisebb magasság mobil eszközökön */
+    }
+}
+
+.kat {
+    font-size: 1.2em; /* Nagyobb betűméret */
+    color: #fff; /* Fehér szín */
+    font-weight: bold; /* Félkövér szöveg */
+    text-align: center; /* Középre igazítás */
+    margin-bottom: 10px; /* Távolság az ikonoktól */
+    text-transform: uppercase; /* Nagybetűs szöveg */
+    letter-spacing: 2px; /* Betűk közötti távolság */
+    font-family: 'Arial', sans-serif; /* Betűtípus */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Szöveg árnyék */
+    transition: color 0.3s ease; /* Színváltás animáció */
+}
+
+.kat:hover {
+    color: #ffcc00; /* Színváltás hover állapotban */
+}
+
+/* Alsó sarok stílusa */
+.footer {
+    position: fixed; /* Rögzített pozíció */
+    bottom: -100px; /* Alapból az oldal alatt */
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Átlátszó fekete háttér */
+    color: #fff; /* Fehér szöveg */
+    text-align: center; /* Szöveg középre igazítása */
+    padding: 10px; /* Belső térköz */
+    z-index: 1000; /* Mindig legyen felül */
+    transition: bottom 0.5s ease; /* Sima átmenet */
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Távolság a szöveg és a homokóra között */
+}
+
+/* Homokóra stílusa */
+.hourglass {
+    width: 20px;
+    height: 30px;
+    background-color: #fff; /* Fehér homokóra */
+    position: relative;
+    animation: flip 2s infinite; /* Animáció */
+}
+
+/* Homokóra animáció */
+@keyframes flip {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+}
+
+/* Görgetéskor megjelenítés */
+.footer.visible {
+    bottom: 0; /* Megjelenik az oldal alján */
+}
